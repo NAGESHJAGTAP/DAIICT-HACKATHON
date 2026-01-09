@@ -11,10 +11,18 @@ const nodeTypes={
 
 function RoadMapCanvas({initialNodes, initialEdges}: any) { 
   return (
-     <div>
-
-
-
+    <div style={{ width: '100vw', height: '100vh' }}>
+      <ReactFlow
+        nodes={initialNodes}
+        edges={initialEdges}
+        nodeTypes={nodeTypes}
+        fitView
+        >
+            <Controls />
+            <MiniMap />
+            {/* @ts-ignore */}
+            <Background variant='dots' gap={12} size={1} />
+        </ReactFlow>
     </div>
   )
 }
