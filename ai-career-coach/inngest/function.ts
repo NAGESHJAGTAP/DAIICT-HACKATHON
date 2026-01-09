@@ -205,3 +205,54 @@ Sincerely,
   })
 })
 
+
+
+var imagekit = new ImageKit({
+  //@ts-ignore
+    publicKey : process.env.IMAGEKIT_PUBLIC_KEY ,
+  //@ts-ignore
+
+    privateKey : process.env.IMAGEKIT_PRIVATE_KEY ,
+  //@ts-ignore
+
+    urlEndpoint : process.env.IMAGEKIT_URL_ENDPOINT 
+});
+
+export const  AiResumeAgent = inngest.createFunction(
+   {id:'AiResumeAgent'},
+   {event:'AiResumeAgent'},
+   async ({event, step})=>{
+    const {recordId, base64ResumeFile, pdfText,userEmail,userId} = await  event.data;
+
+    //upload file to cloud storage( imagekit.io )
+      const uploadImageUrl = await step.run("uploadImage",async()=>{
+        const imageKitFile = await imagekit.upload({
+            file: base64ResumeFile, //required
+            fileName: `${Date.now()}.pdf`, //required
+            isPublished:true
+        })
+        return imageKitFile.url
+      })
+      const aiResumeReport  = await AiResumeAnalyzerAgent.run(pdfText)
+      //@ts-ignore
+      const rawContent = aiResumeReport.output[0].content;
+      const rawContentJson  = rawContent.replace('```json', '').replace('```', '')
+      const parseJSON = JSON.parse(rawContentJson)
+    
+      //save to db 
+
+      const saveToDB = await step.run("saveToDB", async()=>{
+           const result = await db.insert(resumeAnalysisTable).values({
+            userId: userId,
+            email: userEmail,
+            analysisData: parseJSON,
+            resumeURL: uploadImageUrl
+
+           })
+
+          //  console.log("result:",result)
+           return parseJSON;
+      })
+
+   }
+)
