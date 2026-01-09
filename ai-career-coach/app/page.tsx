@@ -44,7 +44,137 @@ export default function Home() {
           </div>
         </div>
       </nav>
-    
+      {/* Hero Section */}
+      <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center">
+            <div className="inline-flex items-center px-4 py-2 bg-blue-100 dark:bg-blue-900/30 rounded-full mb-6">
+              <span className="text-blue-600 dark:text-blue-400 font-semibold text-sm">
+                ✨ AI-Powered Career Assistant
+              </span>
+            </div>
+            
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 dark:text-white mb-6 leading-tight">
+              Transform Your Career
+              <br />
+              <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent">
+                with AI Intelligence
+              </span>
+            </h1>
+            
+            <p className="text-xl text-gray-600 dark:text-gray-300 mb-10 max-w-3xl mx-auto leading-relaxed">
+              Unlock your professional potential with cutting-edge AI tools for resume building, 
+              career planning, interview preparation, and personalized job search strategies.
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <a 
+                href="/dashboard" 
+                className="px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white rounded-full font-semibold shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 flex items-center gap-2"
+              >
+                Start Your Journey
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
+              </a>
+              
+              <button className="px-8 py-4 bg-white dark:bg-gray-800 text-gray-900 dark:text-white rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-gray-200 dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-500">
+                Watch Demo
+              </button>
+            </div>
+
+            {/* Stats */}
+            <div className="grid grid-cols-3 gap-8 max-w-3xl mx-auto mt-16">
+              <div className="text-center">
+                <div className="text-4xl font-bold text-blue-600 dark:text-blue-400 mb-2">10K+</div>
+                <div className="text-gray-600 dark:text-gray-400">Resumes Created</div>
+              </div>
+              <div className="text-center">
+                <div className="text-4xl font-bold text-indigo-600 dark:text-indigo-400 mb-2">95%</div>
+                <div className="text-gray-600 dark:text-gray-400">Success Rate</div>
+              </div>
+              <div className="text-center">
+                <div className="text-4xl font-bold text-purple-600 dark:text-purple-400 mb-2">24/7</div>
+                <div className="text-gray-600 dark:text-gray-400">AI Support</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section id="features" className="py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-800/50">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+              Powerful AI Tools for Your Career
+            </h2>
+            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+              Everything you need to stand out in today's competitive job market
+            </p>
+          </div>
+
+          {/* First Row - 2 Cards */}
+          <div className="grid md:grid-cols-2 gap-8 mb-8">
+            {/* Feature Card 1 */}
+            <div className="group relative bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-gray-800 dark:to-gray-900 rounded-3xl p-8 hover:shadow-2xl transition-all duration-300 border-2 border-transparent hover:border-blue-500 dark:hover:border-blue-400">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full blur-3xl"></div>
+              <div className="relative">
+                <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <rect width="10" height="14" x="3" y="8" rx="2" strokeWidth="2" />
+                    <path d="M5 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2h-2.4" strokeWidth="2" />
+                    <path d="M8 18h.01" strokeWidth="2" />
+                  </svg>
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
+                  AI Resume Builder
+                </h3>
+                <p className="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
+                  Create ATS-optimized resumes that get noticed. Our AI analyzes job descriptions and tailors your resume for maximum impact.
+                </p>
+                <a href="/dashboard" className="inline-flex items-center text-blue-600 dark:text-blue-400 font-semibold hover:gap-3 gap-2 transition-all">
+                  Build Resume 
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+
+            {/* Feature Card 2 */}
+            <div className="group relative bg-gradient-to-br from-purple-50 to-pink-50 dark:from-gray-800 dark:to-gray-900 rounded-3xl p-8 hover:shadow-2xl transition-all duration-300 border-2 border-transparent hover:border-purple-500 dark:hover:border-purple-400">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-purple-500/10 rounded-full blur-3xl"></div>
+              <div className="relative">
+                <div className="w-16 h-16 bg-gradient-to-br from-purple-600 to-pink-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path d="M20 7h-9" strokeWidth="2" strokeLinecap="round" />
+                    <path d="M14 17H5" strokeWidth="2" strokeLinecap="round" />
+                    <circle cx="17" cy="17" r="3" strokeWidth="2" />
+                    <circle cx="7" cy="7" r="3" strokeWidth="2" />
+                  </svg>
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
+                  AI Resume Analyzer
+                </h3>
+                <p className="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
+                  Get instant feedback on your resume. Our AI identifies weak spots and suggests improvements to boost your chances.
+                </p>
+                <a href="/dashboard" className="inline-flex items-center text-purple-600 dark:text-purple-400 font-semibold hover:gap-3 gap-2 transition-all">
+                  Analyze Now
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
+
+
+          
+        </div>
+      </section>
     
     </div>
 
