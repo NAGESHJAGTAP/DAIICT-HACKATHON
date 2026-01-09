@@ -80,6 +80,52 @@ export default function PreviewResume({
             ) : null }
           </p>
         </div>
+         {/* CAREER OBJECTIVE */}
+        <div className="mb-6">
+          <h2 className="text-lg font-semibold text-gray-900 border-b border-gray-300 pb-1 mb-2">
+            Summary
+          </h2>
+          <p className="text-sm text-gray-700">
+            {careerObjective ||
+              "Motivated developer eager to contribute technical skills and creativity to build impactful digital products."}
+          </p>
+        </div>
+
+        {/* EDUCATION */}
+        <div className="mb-6">
+          <h2 className="text-lg font-semibold border-b border-gray-300 pb-1 mb-2">
+            Education
+          </h2>
+          <ul className="text-sm space-y-1">
+            {education.length > 0 ? (
+              education.map((edu, i) => (
+                <li key={i}>
+                  <span className="font-semibold">{edu.degree}</span> –{" "}
+                  {edu.institution} ({edu.year})
+                </li>
+              ))
+            ) : (
+              <li>Bachelor of Technology – Example University (2025)</li>
+            )}
+          </ul>
+        </div>
+
+        {/* WORK EXPERIENCE */}
+        {includeWorkExperience && workExperience.length > 0 && (
+          <div className="mb-6">
+            <h2 className="text-lg font-semibold border-b border-gray-300 pb-1 mb-2">
+              Work Experience
+            </h2>
+            {workExperience.map((exp, i) => (
+              <div key={i} className="text-sm mb-3">
+                <p className="font-semibold text-gray-800">
+                  {exp.company} - {exp.title}  ({exp.duration})
+                </p>
+                <p className="ml-2 text-gray-700">{exp.description}</p>
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );
